@@ -1,0 +1,128 @@
+{
+    "name": "react-templated",
+    "version": "0.0.0",
+    "description": "Yet another implementation of slot components for React",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint ./src ./tests ./tools --ext .js --cache --ignore-pattern .gitignore",
+        "lint:fix": "eslint ./src ./tests ./tools --ext .js --cache --ignore-pattern .gitignore --fix",
+        "test": "jest",
+        "cover:check": "jest --coverage",
+        "codecov": "codecov -t $CODECOV_TOKEN",
+        "precommit": "npm run lint",
+        "prepush": "npm run lint && npm run cover:check",
+        "prepare:readme": "bash ./tools/prepare-readme.sh",
+        "check:readme": "bash ./tools/check-readme.sh",
+        "build:docs": "gitbook build",
+        "precheck": "node ./tools/precheck.js",
+        "publish:docs": "bash ./tools/publish-docs.sh . .temp",
+        "prepare:release": "standard-version -t ''",
+        "prepare:package": "node ./tools/clean.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andres-kovalev/react-templated.git"
+    },
+    "keywords": [
+        "react",
+        "template",
+        "slot"
+    ],
+    "engines": {
+        "node": ">= 6.2.0"
+    },
+    "author": {
+        "name": "Andres Kovalev",
+        "email": "mail@akovalev.ru"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/andres-kovalev/react-templated/issues"
+    },
+    "homepage": "https://github.com/andres-kovalev/react-templated#readme",
+    "peerDependencies": {
+        "react": "^16.8.0"
+    },
+    "devDependencies": {
+        "@babel/preset-react": "^7.0.0",
+        "babel-eslint": "^10.0.2",
+        "codecov": "^3.2.0",
+        "enzyme": "^3.10.0",
+        "enzyme-adapter-react-16": "^1.14.0",
+        "eslint": "^5.15.3",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-react": "^7.14.2",
+        "gitbook-cli": "^2.3.2",
+        "handlebars": "^4.4.5",
+        "husky": "^1.3.1",
+        "jest": "^24.8.0",
+        "jsdoc-to-markdown": "^5.0.2",
+        "react-dom": "^16.8.0",
+        "standard-version": "^7.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run precommit",
+            "pre-push": "npm run prepush"
+        }
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.js",
+            "src/**/*.jsx"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/tools/jest.config.js"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 70,
+                "functions": 70,
+                "lines": 70,
+                "statements": 70
+            }
+        }
+    },
+    "dependencies": {
+        "hoist-non-react-statics": "^3.3.0",
+        "prop-types": "^15.7.2"
+    },
+    "standard-version": {
+        "types": [
+            {
+                "type": "feat",
+                "section": "Features"
+            },
+            {
+                "type": "fix",
+                "section": "Bug Fixes"
+            },
+            {
+                "type": "chore",
+                "hidden": true
+            },
+            {
+                "type": "docs",
+                "hidden": true
+            },
+            {
+                "type": "style",
+                "hidden": true
+            },
+            {
+                "type": "refactor",
+                "section": "Improvements"
+            },
+            {
+                "type": "perf",
+                "section": "Improvements"
+            },
+            {
+                "type": "test",
+                "hidden": true
+            }
+        ]
+    }
+}
