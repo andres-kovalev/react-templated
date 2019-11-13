@@ -73,10 +73,10 @@ function Templated({ content, children }) {
 
     contentMap.default = React.Children.map(content, extractSlots);
 
-    return (
-        <ContentContext.Provider value={contentMap}>
-            {children}
-        </ContentContext.Provider>
+    return React.createElement(
+        ContentContext.Provider,
+        { value: contentMap },
+        children
     );
 }
 

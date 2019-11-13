@@ -25,10 +25,10 @@ module.exports = withSlots;
  */
 function withSlots(Template) {
     // eslint-disable-next-line react/prop-types
-    const Wrapped = ({ children, ...props }) => (
-        <Templated content={children}>
-            <Template {...props} />
-        </Templated>
+    const Wrapped = ({ children, ...props }) => React.createElement(
+        Templated,
+        { content: children },
+        React.createElement(Template, props)
     );
 
     hoist(Wrapped, Template);
