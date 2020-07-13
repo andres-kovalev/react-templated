@@ -60,7 +60,7 @@
         "jest": "^24.8.0",
         "jsdoc-to-markdown": "^5.0.2",
         "react-dom": "^16.8.0",
-        "standard-version": "^7.0.0"
+        "standard-version": "^8.0.1"
     },
     "husky": {
         "hooks": {
